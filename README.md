@@ -7,7 +7,7 @@
 ##Участники группы
 - Бирюкова Мария — @MariaBir31
 - Абайдуллаева Аксу — @aksu269
-- Имя Фамилия — @github_username
+- Рысқұл Ақнұр — @aknuraru
 
 ## Технологии
 - Frontend: Angular
