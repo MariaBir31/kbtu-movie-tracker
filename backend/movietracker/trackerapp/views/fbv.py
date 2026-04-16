@@ -7,7 +7,7 @@ from ..models import  WatchEntry
 from ..serializers import (LoginSerializer,RegisterSerializer,
                            WatchEntrySerializer)
 def get_tokens_for_user(user):
-    refresh = RefreshToken.for_user(user)
+    refresh = RefreshToken(user)
     return {
         'refresh': str(refresh),
         'access': str(refresh.access_token)
