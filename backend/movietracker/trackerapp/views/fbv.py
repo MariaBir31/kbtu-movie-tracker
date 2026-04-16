@@ -40,7 +40,7 @@ def login_view(request):
 def logout_view(request):
     try:
         refresh_token=request.data.get('refresh')
-        token = RefreshToken.for_user(refresh_token)
+        token = RefreshToken(refresh_token)
         token.blacklist()
         return Response({'message':'Logged out successfully'},status=status.HTTP_200_OK)
     except Exception:
