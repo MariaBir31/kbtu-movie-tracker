@@ -1,0 +1,18 @@
+<div class="form-container">
+  <h1>Add New Movie</h1>
+  <p>Fill in the details to add a movie to the database.</p>
+
+  <div class="input-group">
+    <input type="text" [(ngModel)]="newMovie.title" placeholder="Movie Title">
+  </div>
+
+  <div class="input-group">
+    <input type="number" [(ngModel)]="newMovie.year" placeholder="Year">
+  </div>
+
+  <div class="input-group">
+    <input type="text" [(ngModel)]="newMovie.image" placeholder="Poster Image URL">
+  </div>
+
+  <button class="submit-btn" (click)="onSubmit()">Save to Database</button>
+</div>

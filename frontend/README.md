@@ -1,59 +1,63 @@
-# Frontend
+# 🎬 MovieTracker — Angular Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
-
-## Development server
-
-To start a local development server, run:
+## Setup
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start dev server (proxies /api → Django on port 8000)
 ng serve
+# App runs at http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## Requirements: make sure Django backend is running first
 ```bash
-ng generate component component-name
+cd ../movietracker
+python manage.py runserver   # runs on http://localhost:8000
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## Rubric coverage
+
+| Requirement | Where |
+|---|---|
+| Interfaces & services | `models.ts`, `services/auth.service.ts`, `services/movie.service.ts` |
+| 4+ (click) events → API | movies.component (addMovie, applyFilter, addToWatchlist), movie-detail.component (toggleStatus, setRating, removeFromWatchlist, postReview), watchlist.component (updateStatus, setRating, remove) |
+| 4+ [(ngModel)] form controls | login (username, password), register (username, email, password, password2), movies (title, year, genre, poster, description), watchlist (status select, note input) |
+| CSS styling | Inline styles in every component — dark cinema theme |
+| Routing — 3+ named routes | `app.routes.ts` — /login, /register, /movies, /movies/:id, /watchlist |
+| @for / @if | movies.component, movie-detail.component, watchlist.component |
+| JWT auth + interceptor | `interceptors/jwt.interceptor.ts`, `guards/auth.guard.ts`, login/logout in auth.service |
+| HttpClient service | `services/movie.service.ts` — all API calls go through here |
+| Error handling | Every `.subscribe({ error: e => this.error = e.message })`, interceptor extracts Django error messages |
+
+---
+
+## File structure
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+src/
+├── main.ts
+├── styles.css
+└── app/
+    ├── app.component.ts       ← root + navbar
+    ├── app.config.ts          ← registers interceptor
+    ├── app.routes.ts          ← all routes
+    ├── models.ts              ← TypeScript interfaces
+    ├── services/
+    │   ├── auth.service.ts    ← login/register/logout/refresh
+    │   └── movie.service.ts   ← all movie/watchlist/review API calls
+    ├── interceptors/
+    │   └── jwt.interceptor.ts ← attaches Bearer token, handles 401
+    ├── guards/
+    │   └── auth.guard.ts      ← protects routes
+    ├── components/
+    │   └── navbar/
+    └── pages/
+        ├── login/
+        ├── register/
+        ├── movies/            ← browse + add movie
+        ├── movie-detail/      ← ratings + reviews
+        └── watchlist/         ← my list with status/rating
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <div id="title">
+    <img src="https://www.nicepng.com/png/full/12-126356_images-for-video-player-icon-youtube-logo-grey.png" width="40">
+    <h2>Tracker</h2>
+  </div>
+  
+  <button routerLink="/">🎬 All Movies</button>
+  
+  @if (isAdmin) {
+    <button class="add-btn" routerLink="/add">+ Add Movie</button>
+  }
+
+  <div class="user-status">
+    @if (!user) {
+      <button routerLink="/register" style="background: #5f1e1e;">Login / Register</button>
+    } @else {
+      <div class="user-info">
+        <span>{{ user.email }}</span>
+        <button class="logout-btn" (click)="logout.emit()">Logout</button>
+      </div>
+    }
+  </div>
+</div>

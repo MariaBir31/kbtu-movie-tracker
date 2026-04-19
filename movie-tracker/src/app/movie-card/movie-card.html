@@ -1,0 +1,36 @@
+<div class="card">
+  <a [routerLink]="['/movie', movie.id]" class="card-image-link">
+    <div class="card-image">
+      @if (movie.image) {
+        <img [src]="movie.image" [alt]="movie.title">
+      } @else {
+        <div class="no-image">🎬</div>
+      }
+    </div>
+  </a>
+
+  <div class="card-body">
+    <a [routerLink]="['/movie', movie.id]" class="card-title">{{ movie.title }}</a>
+    <span class="card-year">{{ movie.year }}</span>
+
+    @if (movie.genre_name) {
+      <span class="card-genre">{{ movie.genre_name }}</span>
+    }
+
+    <div class="card-actions">
+      @if (!inWatchlist) {
+        <button class="btn-watch" (click)="addToWatchlist.emit(movie)">
+          + Watchlist
+        </button>
+      } @else {
+        <span class="in-watchlist">✓ Added</span>
+      }
+
+      @if (isAdmin) {
+        <button class="btn-delete" (click)="deleteMovie.emit(movie.id)">
+          Delete
+        </button>
+      }
+    </div>
+  </div>
+</div>

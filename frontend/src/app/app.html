@@ -1,40 +1,18 @@
 <div class="container">
-
-  <div class="sidebar">
-    <h2>🎬 Movie Tracker</h2>
-
-    <button>All Movies</button>
-    <button>Watchlist</button>
-    <button class="add-btn">+ Add Movie</button>
-  </div>
-
+  <app-sidebar 
+    [isAdmin]="isAdmin" 
+    [user]="currentUser" 
+    (logout)="logout()">
+  </app-sidebar>
 
   <div class="main">
-    <h1>All Movies</h1>
-
-    <div class="movies">
-
-      <div class="movie-card" *ngFor="let movie of movies">
-        <img [src]="movie.image" alt="movie">
-
-        <div class="movie-info">
-          <h3>{{movie.title}}</h3>
-          <p>{{movie.year}}</p>
-
-          <button class="watch-btn">+ Watchlist</button>
-        </div>
-      </div>
-
-    </div>
+    <router-outlet></router-outlet> 
   </div>
-
 
   <div class="watchlist">
-    <h3>My Watchlist</h3>
-
-    <div class="watch-item" *ngFor="let item of watchlist">
-      {{item.title}}
-    </div>
+    <app-watchlist 
+      [items]="watchlistService.items()"
+      (remove)="watchlistService.remove($event)">
+    </app-watchlist>
   </div>
-
 </div>

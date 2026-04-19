@@ -1,0 +1,18 @@
+<div class="layout">
+  <app-sidebar
+    [isAdmin]="auth.isAdmin()"
+    [user]="auth.currentUser()"
+    (logout)="logout()">
+  </app-sidebar>
+
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="watchlist-panel">
+    <app-watchlist
+      [items]="watchlist.items()"
+      (remove)="watchlist.remove($event)">
+    </app-watchlist>
+  </div>
+</div>

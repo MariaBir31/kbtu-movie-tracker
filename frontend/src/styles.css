@@ -1,110 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-    margin : 0;
-    font-family : 'Segoe UI', sans-serif;
-    background-color: #f4f5f7;  
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f0f13;
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    display : flex;
+input, select, textarea, button {
+  font-family: inherit;
 }
 
-.sidebar {
-    width : 230px;
-    background : #7b2c3b;
-    color : white;
-    padding : 20px;
-    height : 100vh;
-}
-.sidebar h2{
-    margin-bottom: 30px;
+a {
+  color: inherit;
 }
 
-.sidebar button {
-    width : 100%;
-    color : white;
-    cursor : pointer;
-    margin-bottom: 15px;
-    padding : 12px;
-    border : none;
-    border-radius : 10px;
-    background: #a03c4a;
-    font-size : 14px;
-}
-
-.sidebar button:hover {
-    background: #c04a5a;
-}
-
-.add-btn {
-  background: #ff7b7b;
-}
-
-.main {
-  flex: 1;
-  padding: 25px;
-}
-
-.main h1 {
-  margin-bottom: 20px;
-}
-
-.movies {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.movie-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.movie-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.movie-info {
-  padding: 10px;
-}
-
-.movie-info h3 {
-  margin: 5px 0;
-}
-
-.watch-btn {
-  margin-top: 10px;
-  padding: 8px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  background: #7b2c3b;
-  color: white;
-  cursor: pointer;
-}
-
-.watch-btn:hover {
-  background: #a03c4a;
-}
-
-.watchlist {
-  width: 260px;
-  background: white;
-  padding: 20px;
-  border-left: 1px solid #ddd;
-}
-
-.watchlist h3 {
-  margin-bottom: 15px;
-}
-
-.watch-item {
-  padding: 10px;
-  border-radius: 8px;
-  background: #f0f0f0;
-  margin-bottom: 10px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f0f13; }
+::-webkit-scrollbar-thumb { background: #2e2e3e; border-radius: 3px; }
