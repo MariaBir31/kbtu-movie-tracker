@@ -1,0 +1,94 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">▶ MovieTracker</div>
+
+    <div class="tabs">
+      <button
+        [class.active]="activeTab === 'login'"
+        (click)="switchTab('login')">
+        Login
+      </button>
+      <button
+        [class.active]="activeTab === 'register'"
+        (click)="switchTab('register')">
+        Register
+      </button>
+    </div>
+
+    @if (error) {
+      <div class="error-box">{{ error }}</div>
+    }
+
+    @if (activeTab === 'login') {
+      <div class="form">
+        <div class="field">
+          <label>Email</label>
+          <input
+            type="email"
+            [(ngModel)]="loginEmail"
+            name="loginEmail"
+            placeholder="example@mail.com">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input
+            type="password"
+            [(ngModel)]="loginPassword"
+            name="loginPassword"
+            placeholder="••••••••">
+        </div>
+        <button class="submit-btn" (click)="onLogin()" [disabled]="loading">
+          {{ loading ? 'Loading...' : 'Login' }}
+        </button>
+        <p class="switch-hint">
+          No account?
+          <span (click)="switchTab('register')">Register here</span>
+        </p>
+      </div>
+    }
+
+    @if (activeTab === 'register') {
+      <div class="form">
+        <div class="field">
+          <label>Username</label>
+          <input
+            type="text"
+            [(ngModel)]="regUsername"
+            name="regUsername"
+            placeholder="Your name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input
+            type="email"
+            [(ngModel)]="regEmail"
+            name="regEmail"
+            placeholder="example@mail.com">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input
+            type="password"
+            [(ngModel)]="regPassword"
+            name="regPassword"
+            placeholder="••••••••">
+        </div>
+        <div class="field">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            [(ngModel)]="regConfirm"
+            name="regConfirm"
+            placeholder="••••••••">
+        </div>
+        <button class="submit-btn" (click)="onRegister()" [disabled]="loading">
+          {{ loading ? 'Loading...' : 'Create Account' }}
+        </button>
+        <p class="switch-hint">
+          Have an account?
+          <span (click)="switchTab('login')">Login here</span>
+        </p>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">▶</div>
+    <span class="logo-text">MovieTracker</span>
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      🎬 All Movies
+    </a>
+
+    @if (user) {
+      <a routerLink="/watchlist" routerLinkActive="active">
+        📋 My Watchlist
+      </a>
+    }
+
+    @if (isAdmin) {
+      <a routerLink="/add" routerLinkActive="active">
+        ➕ Add Movie
+      </a>
+    }
+  </nav>
+
+  <div class="user-block">
+    @if (!user) {
+      <a routerLink="/register" class="login-btn">Login / Register</a>
+    } @else {
+      <div class="user-info">
+        <span class="username">{{ user.username }}</span>
+        <span class="email">{{ user.email }}</span>
+        @if (isAdmin) {
+          <span class="badge">Admin</span>
+        }
+        <button class="logout-btn" (click)="logout.emit()">Logout</button>
+      </div>
+    }
+  </div>
+</div>

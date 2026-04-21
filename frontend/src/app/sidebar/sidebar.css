@@ -1,0 +1,11 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Сайдбар должен быть на всю высоту экрана */
+    min-width: 230px;
+}
+
+.user-status {
+    margin-top: auto; /* Это вытолкнет блок вниз */
+    padding-bottom: 20px;
+}
