@@ -1,0 +1,96 @@
+<div class="dashboard-wrapper">
+  <div class="profile-section">
+    <div class="avatar">YOU</div>
+    <div class="user-info">
+      <h2>YOU</h2>
+      <p>Member since April 2026 • {{ watchEntries().length }} films tracked</p>
+    </div>
+    <div class="profile-actions">
+      <button class="add-films-btn" [routerLink]="['/browse']">+ Add films</button>
+      <button class="sign-out" (click)="logout()">Sign out</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="value">{{ watchedCount() }}</span>
+      <span class="label">WATCHED</span>
+    </div>
+    <div class="stat-card">
+      <span class="value">{{ watchlistCount() }}</span>
+      <span class="label">WATCHLIST</span>
+    </div>
+    <div class="stat-card">
+      <span class="value">{{ reviewCount() }}</span>
+      <span class="label">REVIEWS</span>
+    </div>
+    <div class="stat-card">
+      <span class="value">4.0★</span>
+      <span class="label">AVG RATING</span>
+    </div>
+  </div>
+
+  <div class="library-container">
+    <nav class="library-tabs">
+      <button
+        [class.active]="filterStatus() === 'all'"
+        (click)="setFilter('all')">All films</button>
+      <button
+        [class.active]="filterStatus() === 'watched'"
+        (click)="setFilter('watched')">Watched</button>
+      <button
+        [class.active]="filterStatus() === 'want'"
+        (click)="setFilter('want')">Watchlist</button>
+      <button
+        [class.active]="filterStatus() === 'with-notes'"
+        (click)="setFilter('with-notes')">With notes</button>
+    </nav>
+
+    <table class="film-table">
+      <thead>
+      <tr>
+        <th>FILM</th>
+        <th>STATUS</th>
+        <th>RATING</th>
+        <th>NOTE</th>
+        <th>ACTIONS</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (entry of filteredEntries(); track entry.id) {
+          <tr>
+            <td>
+              <div class="film-cell">
+                <span class="icon">🎬</span>
+                <div>
+                  <strong>{{ entry.movie.title }}</strong>
+                  <small>{{ entry.movie.release_year }} • {{ entry.movie.genre }}</small>
+                </div>
+              </div>
+            </td>
+            <td>
+              <select
+                class="status-dropdown"
+                [class.watched-bg]="entry.status === 'watched'"
+                [value]="entry.status"
+                (change)="updateEntryStatus(entry, $any($event.target).value)">
+                <option value="watched">Watched</option>
+                <option value="want">Want to Watch</option>
+              </select>
+            </td>
+            <td>
+              <span class="rating-text">{{ entry.rating || 0 }}/10</span>
+            </td>
+            <td>
+              <p class="note-text">{{ entry.note || 'No note yet...' }}</p>
+            </td>
+            <td class="actions">
+              <button class="edit" [routerLink]="['/movie', entry.movie.id]">↗</button>
+              <button class="delete" (click)="removeEntry(entry.id)">✕</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

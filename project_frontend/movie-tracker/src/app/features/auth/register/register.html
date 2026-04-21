@@ -1,0 +1,73 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Create Account</h2>
+      <p>Join Movie Tracker to start saving your favorites</p>
+    </div>
+
+    @if (errorMessage) {
+      <div class="error-banner">
+        <span class="icon">⚠️</span>
+        {{ errorMessage }}
+      </div>
+    }
+
+    <form #registerForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="userObj.username"
+          required
+          placeholder="Choose a unique username">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="userObj.email"
+          required
+          placeholder="email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="userObj.password"
+          required
+          placeholder="••••••••">
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="password2"
+          [(ngModel)]="userObj.password2"
+          required
+          placeholder="••••••••">
+      </div>
+
+      <button
+        type="button"
+        class="btn-primary"
+        (click)="onRegister()"
+        [disabled]="!registerForm.valid">
+        Register Now
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a routerLink="/login">Log in here</a></p>
+    </div>
+  </div>
+</div>

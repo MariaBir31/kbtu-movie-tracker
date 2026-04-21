@@ -1,0 +1,97 @@
+/* Container and Layout */
+.add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #000; /* Pure black */
+  min-height: calc(100vh - 70px);
+}
+
+h2 {
+  color: #ff2d75;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  font-weight: 900;
+  text-shadow: 0 0 10px rgba(255, 45, 117, 0.3);
+}
+
+/* Form Styling */
+form {
+  background: #111; /* Dark grey glass effect */
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 45, 117, 0.2);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Inputs, Selects, and Textarea */
+input, select, textarea {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #666;
+}
+
+/* Focus State - Glow effect */
+input:focus, select:focus, textarea:focus {
+  border-color: #ff2d75;
+  box-shadow: 0 0 10px rgba(255, 45, 117, 0.2);
+  background: #222;
+}
+
+/* Custom styling for Select dropdown */
+select {
+  cursor: pointer;
+  appearance: none; /* Removes default browser arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff2d75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #ff2d75;
+  color: #000;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #ff5c97;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 45, 117, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+

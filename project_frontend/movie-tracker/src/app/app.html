@@ -1,0 +1,14 @@
+<nav class="main-nav">
+  <div class="brand" routerLink="/">Movie Tracker</div>
+
+  <div class="links">
+    <a routerLink="/browse" routerLinkActive="active">Browse</a>
+    <a routerLink="/cabinet" routerLinkActive="active">Cabinet</a>
+
+    <button class="add-movie-btn" routerLink="/add-movie">+ Add Film</button>
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

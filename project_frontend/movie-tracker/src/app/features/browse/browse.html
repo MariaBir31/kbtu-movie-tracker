@@ -1,0 +1,40 @@
+<div class="browse-wrapper">
+  <header class="browse-header">
+    <input
+      type="text"
+      placeholder="Insert title..."
+      [ngModel]="searchQuery()"
+      (ngModelChange)="searchQuery.set($event)"
+      class="search-input">
+
+    <div class="genre-filters">
+      @for (genre of ['All', 'Action', 'Drama', 'Sci-Fi', 'Horror', 'Romance']; track genre) {
+        <button
+          (click)="setGenre(genre)"
+          [class.active]="selectedGenre() === genre">
+          {{ genre }}
+        </button>
+      }
+    </div>
+  </header>
+
+  <div class="movie-grid">
+    @for (movie of filteredMovies(); track movie.id) {
+      <div class="movie-card" [routerLink]="['/movie', movie.id]">
+        <div class="poster-box">
+          <img [src]="movie.poster_url || 'assets/default.jpg'" [alt]="movie.title">
+          <div class="badge">+ Want</div>
+        </div>
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <p>★ {{ movie.release_year }}</p>
+          <button class="quick-add" (click)="quickAddToWatchlist(movie.id)">
+            + Watchlist
+          </button>
+        </div>
+      </div>
+    } @empty {
+      <p class="no-results">No movies found matching your search.</p>
+    }
+  </div>
+</div>

@@ -1,0 +1,81 @@
+@if (movie(); as m) {
+  <div class="details-wrapper">
+    <button class="back-btn" [routerLink]="['/cabinet']">← Back</button>
+
+    <div class="hero-section">
+      <div class="poster-container">
+        <img [src]="m.poster_url || 'assets/default-poster.jpg'" [alt]="m.title">
+      </div>
+
+      <div class="info-container">
+        <span class="genre-tag">{{ m.genre }} • 2H 7M</span>
+        <h1>{{ m.title }}</h1>
+        <p class="meta">{{ m.release_year }}</p>
+
+        <div class="rating-container">
+          <div class="community-score">
+            <span class="star">★</span>
+            <span class="score-num">{{ avgRating() | number:'1.1-1' }}</span>
+            <span class="score-label">SCORE</span>
+          </div>
+
+          <div class="review-count">
+            {{ ratingsCount() }} REVIEWS
+          </div>
+
+          <div class="personal-rating">
+            <div class="stars-mini">
+              @for (s of [1,2,3,4,5]; track s) {
+                <span
+                  class="star-btn"
+                  [class.active]="s <= userRating()"
+                  (click)="setRating(s)">★</span>
+              }
+            </div>
+            <span class="score-num">{{ userRating() * 2 }}/10</span>
+            <span class="score-label">YOUR RATING</span>
+          </div>
+        </div>
+        <p class="description">
+          <strong>Description:</strong> {{ m.description }}
+        </p>
+
+        <div class="action-buttons">
+          <button class="btn-watchlist" (click)="addToWatchlist()">+ Watchlist</button>
+          <button class="btn-watched">✓ Watched</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-section">
+      <h3>REVIEWS ({{ reviews().length }})</h3>
+
+      <div class="review-box">
+        <textarea
+          [(ngModel)]="newReviewText"
+          placeholder="What did you think?">
+        </textarea>
+        <button class="post-btn" (click)="postReview()">Post review →</button>
+      </div>
+
+      <div class="reviews-list">
+        @for (rev of reviews(); track rev.id) {
+          <div class="review-card">
+            <div class="card-header">
+              <div class="user-avatar">
+                {{ rev.user.username[0] | uppercase }}
+              </div>
+              <div class="user-info">
+                <span class="username">{{ rev.user.username }}</span>
+                <span class="date">{{ rev.created_at | date:'MMM yyyy' }}</span>
+              </div>
+            </div>
+            <p class="card-content">{{ rev.body }}</p>
+          </div>
+        } @empty {
+          <p class="empty-state">No reviews yet. Be the first to share your thoughts!</p>
+        }
+      </div>
+    </div>
+  </div>
+}

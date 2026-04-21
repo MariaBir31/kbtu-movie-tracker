@@ -1,0 +1,21 @@
+<div class="add-container">
+  <h2>Add New Film to Global Catalog</h2>
+
+  <form (ngSubmit)="submitMovie()">
+    <input [(ngModel)]="newMovie.title" name="title" placeholder="Title" required>
+    <select [(ngModel)]="newMovie.genre" name="genre">
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="horror">Horror</option>
+      <option value="sci_fi">Sci-Fi</option>
+      <option value="other">Other</option>
+    </select>
+    <input [(ngModel)]="newMovie.release_year" name="year" type="number" placeholder="Year">
+    <input [(ngModel)]="newMovie.poster_url" name="poster" placeholder="Poster Image URL">
+
+    <textarea [(ngModel)]="newMovie.description" name="desc" placeholder="Description"></textarea>
+
+    <button type="submit" class="submit-btn">Save Movie</button>
+  </form>
+</div>
