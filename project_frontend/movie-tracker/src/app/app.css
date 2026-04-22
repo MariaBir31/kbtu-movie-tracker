@@ -89,6 +89,6 @@
 
 
 main {
-  background-color: #000; /* Ensure the whole app background is black */
-  min-height: calc(100vh - 70px); /* Adjust based on nav height */
+  background-color: #000; 
+  min-height: calc(100vh - 70px); 
 }
