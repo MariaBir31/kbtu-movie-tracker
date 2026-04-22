@@ -1,0 +1,481 @@
+{
+  "info": {
+    "_postman_id": "f7db75a2-b90d-4907-9308-4766ff07efb9",
+    "name": "Movie project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53627820",
+    "_collection_link": "https://go.postman.co/collection/53627820-f7db75a2-b90d-4907-9308-4766ff07efb9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "post movies(movielist_view)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2MzI3NDUwLCJpYXQiOjE3NzYzMjM4NTAsImp0aSI6ImM3MzEzZjUzNTNkYzRmNTg4ZGE1ZTJlOTRkMjQxMTRmIiwidXNlcl9pZCI6IjMifQ.wuszvKQpBOmkWnTODkmVjHc2jC2q_t7LY6NnXi2ikzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Inception\",\n  \"genre\": \"sci_fi\",\n  \"release_year\": 2010,\n  \"poster_url\": \"https://example.com/image.jpg\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add login(post user)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\":\"inkar\",\n    \"password\":\"asdasdasd\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/auth/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register(1)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\":\"inkarik\",\n    \"password\":\"asdasdasd\",\n    \"password2\":\"asdasdasd\",\n    \"email\":\"inkarik@gmail.com\"\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/auth/register/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "auth",
+            "register",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get movies(movielistview)",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2MzM0MTMxLCJpYXQiOjE3NzYzMzA1MzEsImp0aSI6ImY2YzdlYzhmMGEzZTQ1ZDBhZWQwMDc0YmI2OWRkMzUzIiwidXNlcl9pZCI6IjMifQ.hVvxg5R9CvYutiPsnlmQtQOQwXxijVjSWS0p3xgrRDc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/2/rating/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            "2",
+            "rating",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "search movies",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2MzM0MTMxLCJpYXQiOjE3NzYzMzA1MzEsImp0aSI6ImY2YzdlYzhmMGEzZTQ1ZDBhZWQwMDc0YmI2OWRkMzUzIiwidXNlcl9pZCI6IjMifQ.hVvxg5R9CvYutiPsnlmQtQOQwXxijVjSWS0p3xgrRDc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/?search=Inception",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            ""
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "Inception"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Mov",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get mov by id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/1/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get rev",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/1/reviews/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            "1",
+            "reviews",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post mov",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"body\": \n        \"good movie\",\n    \"movie\": \n        1\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/movies/1/reviews/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "movies",
+            "1",
+            "reviews",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get watchlist",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/watchlist/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "watchlist",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post watchlist",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"movie_id\": \n        1\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/watchlist/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "watchlist",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "put watchlist",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"movie_id\": \n        1\n    \n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/watchlist/1/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "watchlist",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete watchl",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2ODkyMjE1LCJpYXQiOjE3NzY4ODg2MTUsImp0aSI6IjFhZjY0ZTA4YTgxMjQzNmU4NGI2NGM1NWNkMTRiNGIzIiwidXNlcl9pZCI6IjI2In0._M29QvljLzZY2Hklv2r2tR7rR70krxVbbXL6NzeMMzY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"movie_id\": 5,\n    \"status\": \"watched\",\n    \"rating\": 8\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/trackerapp/watchlist/1/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "trackerapp",
+            "watchlist",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
