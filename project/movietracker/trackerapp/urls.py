@@ -15,7 +15,8 @@ from .views.cbv import (
     ReviewDetailView,
 )
 from .views.views_em import (
-    movie_rating
+    movie_rating,
+    update_movie_rating
 )
 urlpatterns = [
     #Auth FBVs
@@ -34,4 +35,5 @@ urlpatterns = [
 
     #views_em.py
     path('movies/<int:pk>/rating/', movie_rating),
+    path('movies/<int:pk>/update-rating/', update_movie_rating),
 ]
