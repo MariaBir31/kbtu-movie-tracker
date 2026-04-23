@@ -21,3 +21,22 @@ def movie_rating(request, pk):
         "avg_rating": stats['avg_rating'] or 0,
         "ratings_count": stats['count']
     })
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_movie_rating(request, pk):
+    try:
+        entry = WatchEntry.objects.get(user=request.user, movie_id=pk)
+        
+        
+        new_rating = request.data.get('rating')
+        
+        if new_rating is not None:
+            entry.rating = new_rating
+            entry.save()
+            return Response({"message": "Rating updated", "rating": entry.rating})
+        
+        return Response({"error": "No rating provided"}, status=400)
+
+    except WatchEntry.DoesNotExist:
+        
+        return Response({"error": "Entry not found. Add to watchlist first."}, status=404)
