@@ -35,8 +35,32 @@ export class MovieDetails implements OnInit {
     }
   }
   setRating(val: number) {
-    this.userRating.set(val);
+            this.userRating.set(val);
+            const movieId = this.movie()?.id;
+            const rating10 = val * 2;
+
+            if (movieId) {
+              this.movieService.updateMovieRating(movieId, rating10).subscribe({
+                next: (res) => {
+                  console.log('Saved!', res);
+
+                  this.refreshStats(movieId);
+        },
+        error: (err) => {
+          if (err.status === 404) {
+            alert("Please add the movie to your Watchlist before rating!");
+          }
+        }
+      });
+    }
   }
+  refreshStats(id: number) {
+    this.movieService.getMovieRating(id).subscribe(stats => {
+      this.avgRating.set(stats.avg_rating);
+      this.ratingsCount.set(stats.ratings_count);
+    });
+  }
+
 
   postReview() {
     const movieId = this.movie()?.id;
