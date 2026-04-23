@@ -65,6 +65,13 @@ export class MovieService {
   getMovieRating(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/movies/${id}/rating/`);
   }
+  updateMovieRating(movieId: number, rating: number) {
+  const token = localStorage.getItem('access');
+  return this.http.patch(`${this.apiUrl}/movies/${movieId}/update-rating/`, 
+    { rating: rating },
+    { headers: { 'Authorization': `Bearer ${token}` } }
+  );
+  }
 
   getReviewsForMovie(movieId: number) {
     return this.http.get<any[]>(`${this.baseUrl}/movies/${movieId}/reviews/`);
