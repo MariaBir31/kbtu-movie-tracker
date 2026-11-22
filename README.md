@@ -125,3 +125,5 @@ http://localhost:4200/
 * Leave reviews
 * View movie ratings
 
+
+Watchlist feature: users can save movies to watch later.
